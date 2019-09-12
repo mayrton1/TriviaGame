@@ -28,23 +28,23 @@ const quizQuestions = [
 
 ];
 
-const funImages =[
-    '../images/moonlanding.gif',
-    '../images/planets.gif',
-    '../images/einsteinclapping.gif',
-    '../images/sputnik.gif'
+const funImages = [
+    'assets/images/moon landing.gif',
+    'assets/images/planets.gif',
+    'assets/images/einstein clapping.gif',
+    'assets/images/sputnik.gif'
 ];
 
-const sadImages =[
-    
-    '../images/rocketexplosion.gif',
-    '../images/planetexploding.gif',
-    '../images/rickcrying.gif',
-    '../images/satelliteexplosion.gif'
+const sadImages = [
+
+    'assets/images/rocket explosion.gif',
+    'assets/images/planet exploding.gif',
+    'assets/images/rick crying.gif',
+    'assets/images/satellite explosion.gif'
 ];
 
 //Initial Values 
-var counter = 5;
+var counter = 30;
 var currentQuestion = 0;
 var score = 0;
 var lost = 0;
@@ -53,7 +53,7 @@ var timer;
 //If the Time is over go to the next question.
 function nextQuestion() {
 
-    const isQuestionOver=(quizQuestions.length -1)===currentQuestion;
+    const isQuestionOver = (quizQuestions.length - 1) === currentQuestion;
     if (isQuestionOver) {
         console.log('Game is Over');
         displayResult();
@@ -71,7 +71,7 @@ function timeUp() {
     lost++;
 
     preloadImage('lost');
-    setTimeout(nextQuestion, 3 * 1000);
+    setTimeout(nextQuestion, 4 * 1000);
     // nextQuestion();
 }
 
@@ -87,14 +87,16 @@ function CountDown() {
 // Displaying the questions and choices in the browser screen.
 
 function loadQuestion() {
-    counter = 5;
+    counter = 30;
     timer = setInterval(CountDown, 1000);
 
     const question = quizQuestions[currentQuestion].question;
     const choices = quizQuestions[currentQuestion].choices;
 
     $('#time').html("Timer:" + counter);
-    $("#game").html(`<h4> ${question} </h4>${loadChoices(choices)}`);
+    $("#game").html(`<h4> ${question} </h4>${loadChoices(choices)}
+    ${loadRemainingQuestion()}
+    `);
 
 }
 
@@ -109,27 +111,27 @@ function loadChoices(choices) {
 }
 
 // If a right or wrong choice is selected go to the next question.
-$(document).on('click', ".choice", function(){
-        clearInterval(timer);
-        const selectedAnswer = $(this).attr('data-answer');
-        const correctAnswer = quizQuestions[currentQuestion].correctAnswer;
-        if (correctAnswer===selectedAnswer){
-            //User Wins
-            score++;
-            setTimeout(nextQuestion, 3 * 1000);
-            console.log("Wins");
-            preloadImage('win');
-        } else{
-            lost++;
-            setTimeout(nextQuestion, 3 * 1000);
-            preloadImage('lost');
-            console.log("lost!");
-        }
-        
+$(document).on('click', ".choice", function () {
+    clearInterval(timer);
+    const selectedAnswer = $(this).attr('data-answer');
+    const correctAnswer = quizQuestions[currentQuestion].correctAnswer;
+    if (correctAnswer === selectedAnswer) {
+        //User Wins
+        score++;
+        setTimeout(nextQuestion, 5 * 1000);
+        console.log("Wins");
+        preloadImage('win');
+    } else {
+        lost++;
+        setTimeout(nextQuestion, 5 * 1000);
+        preloadImage('lost');
+        console.log("lost!");
+    }
+
 });
 
 function displayResult() {
-    const result=`
+    const result = `
     <p>You get ${score} questions(s) right </p>
     <p>You got it wrong ${lost} questions(s) </p>
     <p>Total questions ${quizQuestions.length} questions(s) </p>
@@ -138,39 +140,51 @@ function displayResult() {
     $("#game").html(result);
 }
 
-$(document).on('click', '#reset', function(){
-counter = 5;
-currentQuestion = 0;
-score = 0;
-lost = 0;
-timer=null;
+$(document).on('click', '#reset', function () {
+    counter = 5;
+    currentQuestion = 0;
+    score = 0;
+    lost = 0;
+    timer = null;
 
-   loadQuestion();
+    loadQuestion();
 });
 
-function loadRemainingQuestion(){
-    const remainingQuestion = quizQuestions.length-(currentQuestion + 1)
-    const TotalQuestion = quizQuestions.length;
-    
-    return `Remaining Question:${requestAnimationFrame}/${totalQuestion}`;
+function loadRemainingQuestion() {
+    const remainingQuestion = quizQuestions.length - (currentQuestion + 1)
+    const totalQuestion = quizQuestions.length;
+
+    return `Remaining Question:${remainingQuestion}/${totalQuestion}`;
+}
+//random images 
+function randomImage(images) {
+    const random = Math.floor(Math.random() * images.length);
+    const randomImage = images[random];
+    return randomImage;
 }
 // Show funny gif pictures if correct or incorrect answers. 
-function preloadImage(status){
+function preloadImage(status) {
     const correctAnswer = quizQuestions[currentQuestion].correctAnswer;
 
-    if (status==='win'){
+    if (status === 'win') {
         $('#game').html(`
             <p class='preload-image'> You Picked a Winner that's out of this World!</p>
             <p class='preload-image'> The correct answer is ${correctAnswer} </p>
+            <img src="${randomImage(funImages)}"/>
         `);
-    } else{
+    } else {
         $('#game').html(`
         <p class='preload-image'> Noooo! I'm sorry the correct answer was ${correctAnswer}</p>
         <p class='preload-image'> You really crashed and burned!!  </p>
+        <img src="${randomImage(sadImages)}"/>
     `);
     }
 
 }
 
-// loadimage ('');
-loadQuestion();
+
+$('#start').click(function(){
+    $('#start').remove();
+    $('time').html(counter);
+    loadQuestion();
+});

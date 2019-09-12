@@ -29,18 +29,18 @@ const quizQuestions = [
 ];
 
 const funImages =[
-    '../assets/images/moon landing.gif',
-    '../assets/images/planets.gif',
-    '../assets/images/einstein clapping.gif',
-    '../assets/images/sputnik.gif'
+    '../images/moonlanding.gif',
+    '../images/planets.gif',
+    '../images/einsteinclapping.gif',
+    '../images/sputnik.gif'
 ];
 
 const sadImages =[
     
-    '../assets/images/rocket explosion.gif',
-    '../assets/images/planet exploding.gif',
-    '../assets/images/rick crying.gif',
-    '../assets/images/satellite explosion.gif'
+    '../images/rocketexplosion.gif',
+    '../images/planetexploding.gif',
+    '../images/rickcrying.gif',
+    '../images/satelliteexplosion.gif'
 ];
 
 //Initial Values 

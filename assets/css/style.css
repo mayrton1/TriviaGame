@@ -1,0 +1,22 @@
+.choice{
+    border: 1px solid lightgrey;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.jumbtron{
+    background-image: url("assets/images/images.jpg");
+    opacity: 0.5;
+    text-align: center;
+}
+
+body{
+    background-image: url("assets/images/space.jpg");
+    background-size:50;
+
+}
+
+div{
+    color:rgba(0, 195, 255, 0.883);
+}

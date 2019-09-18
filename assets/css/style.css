@@ -19,11 +19,7 @@
     
 }
 
-.jumbotron{
-    font-size:50px
-    
-    
-}
+
 body{
     background-image: url("../images/galaxy-computer-backgrounds-9.jpg");
     background-size:cover;
@@ -60,14 +56,8 @@ h1{
     font-family: 'SpaceMeatballRegular';
     font-weight: normal;
     font-style: normal;
-    
-
-    
 }
-
-.question{
-    color:white;
-}
+    
 
 .btn-primary{
     Background-color:rgb(60, 0, 128);
@@ -79,6 +69,16 @@ div{
 }
 
 p{
-    color:rgb(0, 195, 255);
+    color:rgba(102, 255, 0, 0.904);
+    font-family: 'XoloniumRegular';
+    font-weight: normal;
+    font-style: normal;
     
+}
+
+.quizQuestions{
+    color: rgb(225, 0, 255);
+    font-family: 'SpaceMeatballRegular';
+    font-weight: normal;
+    font-style: normal;
 }

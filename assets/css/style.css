@@ -4,42 +4,56 @@
     border-radius: 4px;
     cursor: pointer;
     background-color: white;
+    
+    
 }
 
 .head{
     
-    background-image: url("../images/planetsunrise.jpg");
+    background-image: url("../images/light.jpeg");
     background-size: cover;
     text-align: center;
     font-size: 100px
     
-
+    
+    
 }
 
 .jumbotron{
     font-size:50px
+    
+    
 }
 body{
     background-image: url("../images/galaxy-computer-backgrounds-9.jpg");
     background-size:cover;
+    
     
 
 }
 
 h2{
     color:rgb(0, 255, 179);
+    
 }
 
 h1{
     color:rgb(107, 0, 128);
     font-size: 75px
+    
 }
  h4{
      color:whitesmoke;
+    
  }
 
 .preload-image{
-    color: red;
+    color: rgb(225, 0, 255);
+    font-family: 'SpaceMeatballRegular';
+    font-weight: normal;
+    font-style: normal;
+
+    
 }
 
 .question{
@@ -52,9 +66,10 @@ h1{
 
 div{
     color: rgb(0, 255, 255);
+    
 }
 
 p{
     color:rgb(0, 195, 255);
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    
 }

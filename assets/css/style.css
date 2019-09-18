@@ -39,19 +39,28 @@ h2{
 
 h1{
     color:rgb(107, 0, 128);
-    font-size: 75px
+    font-size: 90px;
+    font-family: 'XoloniumRegular';
+    font-weight: normal;
+    font-style: normal;
+    
     
 }
  h4{
-     color:whitesmoke;
+     color:rgb(255, 0, 255);
+     font-family: 'XoloniumRegular';
+     font-weight: normal;
+     font-style: normal;
+  }
     
- }
+ 
 
 .preload-image{
     color: rgb(225, 0, 255);
     font-family: 'SpaceMeatballRegular';
     font-weight: normal;
     font-style: normal;
+    
 
     
 }

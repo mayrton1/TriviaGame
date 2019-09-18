@@ -1,4 +1,4 @@
-//questions in game
+
 const quizQuestions = [
     {
         question: "What year did man land on the moon?",
@@ -28,7 +28,7 @@ const quizQuestions = [
     },
 
 ];
-//gif animations
+
 const funImages = [
     'assets/images/moon landing.gif',
     'assets/images/planets.gif',
@@ -44,14 +44,14 @@ const sadImages = [
     'assets/images/satellite explosion.gif'
 ];
 
-//Initial Values 
+
 var counter = 30;
 var currentQuestion = 0;
 var score = 0;
 var lost = 0;
 var timer;
 
-//If the Time is over go to the next question.
+
 function nextQuestion() {
 
     const isQuestionOver = (quizQuestions.length - 1) === currentQuestion;
@@ -65,7 +65,7 @@ function nextQuestion() {
     }
 
 }
-// Start a time of 30 seconds for the player to choose an answer from each question. 
+
 function timeUp() {
     clearInterval(timer);
 
@@ -73,9 +73,9 @@ function timeUp() {
 
     preloadImage('lost');
     setTimeout(nextQuestion, 4 * 1000);
-    // nextQuestion();
+    
 }
-//counter
+
 function CountDown() {
     counter--;
 
@@ -85,7 +85,7 @@ function CountDown() {
         timeUp();
     }
 }
-// Displaying the questions and choices in the browser screen.
+
 
 function loadQuestion() {
     counter = 30;
@@ -111,18 +111,18 @@ function loadChoices(choices) {
     return result;
 }
 
-// If a right or wrong choice is selected go to the next question.
+
 $(document).on('click', ".choice", function () {
     clearInterval(timer);
     const selectedAnswer = $(this).attr('data-answer');
     const correctAnswer = quizQuestions[currentQuestion].correctAnswer;
     if (correctAnswer === selectedAnswer) {
-        //User Wins
+        
         score++;
         setTimeout(nextQuestion, 5 * 1000);
         console.log("Wins");
         preloadImage('win');
-        //user loses
+        
     } else {
         lost++;
         setTimeout(nextQuestion, 5 * 1000);
@@ -131,7 +131,7 @@ $(document).on('click', ".choice", function () {
     }
 
 });
-//reset game
+
 function displayResult() {
     const result = `
     <p>You got ${score} questions(s) right </p>
@@ -151,20 +151,20 @@ $(document).on('click', '#reset', function () {
 
     loadQuestion();
 });
-//loads remaining questions 
+
 function loadRemainingQuestion() {
     const remainingQuestion = quizQuestions.length - (currentQuestion + 1)
     const totalQuestion = quizQuestions.length;
 
     return `Remaining Question:${remainingQuestion}/${totalQuestion}`;
 }
-//random images 
+
 function randomImage(images) {
     const random = Math.floor(Math.random() * images.length);
     const randomImage = images[random];
     return randomImage;
 }
-// Show funny gif pictures if correct or incorrect answers. 
+
 function preloadImage(status) {
     const correctAnswer = quizQuestions[currentQuestion].correctAnswer;
 
@@ -184,7 +184,7 @@ function preloadImage(status) {
 
 }
 
-//start game
+
 $('#start').click(function(){
     $('#start').remove();
     $('time').html(counter);

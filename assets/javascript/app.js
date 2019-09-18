@@ -134,9 +134,9 @@ $(document).on('click', ".choice", function () {
 //reset game
 function displayResult() {
     const result = `
-    <p>You get ${score} questions(s) right </p>
-    <p>You got it wrong ${lost} questions(s) </p>
-    <p>Total questions ${quizQuestions.length} questions(s) </p>
+    <p>You got ${score} questions(s) right </p>
+    <p>You got ${lost} questions(s) wrong </p>
+    <p>Total of ${quizQuestions.length} questions(s) </p>
     <button class="btn btn-primary" id="reset" >Reset Game </button>
     `;
     $("#game").html(result);

@@ -32,8 +32,11 @@ h2{
 
 h1{
     color:rgb(107, 0, 128);
-    font-size: 50px
+    font-size: 75px
 }
+ h4{
+     color:whitesmoke;
+ }
 
 .preload-image{
     color: red;
@@ -43,3 +46,15 @@ h1{
     color:white;
 }
 
+.btn-primary{
+    Background-color:rgb(60, 0, 128);
+}
+
+div{
+    color:white;
+}
+
+p{
+    color:rgb(0, 195, 255);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}

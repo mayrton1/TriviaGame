@@ -7,12 +7,12 @@
 }
 
 .head{
-   
+    
     background-image: url("../images/planetsunrise.jpg");
     background-size: cover;
     text-align: center;
     font-size: 100px
-   
+    
 
 }
 
@@ -20,7 +20,7 @@
     font-size:50px
 }
 body{
-    background-image: url("../images/solar system.jpg");
+    background-image: url("../images/galaxy-computer-backgrounds-9.jpg");
     background-size:cover;
     
 
@@ -51,7 +51,7 @@ h1{
 }
 
 div{
-    color:white;
+    color: rgb(0, 255, 255);
 }
 
 p{

@@ -82,3 +82,13 @@ p{
     font-weight: normal;
     font-style: normal;
 }
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(162, 0, 255);
+    color: white;
+    text-align: center;
+  }

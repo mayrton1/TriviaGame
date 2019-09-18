@@ -1,3 +1,4 @@
+//questions in game
 const quizQuestions = [
     {
         question: "What year did man land on the moon?",
@@ -27,7 +28,7 @@ const quizQuestions = [
     },
 
 ];
-
+//gif animations
 const funImages = [
     'assets/images/moon landing.gif',
     'assets/images/planets.gif',
@@ -74,7 +75,7 @@ function timeUp() {
     setTimeout(nextQuestion, 4 * 1000);
     // nextQuestion();
 }
-
+//counter
 function CountDown() {
     counter--;
 
@@ -121,6 +122,7 @@ $(document).on('click', ".choice", function () {
         setTimeout(nextQuestion, 5 * 1000);
         console.log("Wins");
         preloadImage('win');
+        //user loses
     } else {
         lost++;
         setTimeout(nextQuestion, 5 * 1000);
@@ -129,7 +131,7 @@ $(document).on('click', ".choice", function () {
     }
 
 });
-
+//reset game
 function displayResult() {
     const result = `
     <p>You get ${score} questions(s) right </p>
@@ -141,7 +143,7 @@ function displayResult() {
 }
 
 $(document).on('click', '#reset', function () {
-    counter = 5;
+    counter = 30;
     currentQuestion = 0;
     score = 0;
     lost = 0;
@@ -149,7 +151,7 @@ $(document).on('click', '#reset', function () {
 
     loadQuestion();
 });
-
+//loads remaining questions 
 function loadRemainingQuestion() {
     const remainingQuestion = quizQuestions.length - (currentQuestion + 1)
     const totalQuestion = quizQuestions.length;
@@ -182,7 +184,7 @@ function preloadImage(status) {
 
 }
 
-
+//start game
 $('#start').click(function(){
     $('#start').remove();
     $('time').html(counter);
